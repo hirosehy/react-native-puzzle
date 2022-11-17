@@ -20,7 +20,7 @@ export const Button: React.FC<Props> = ({
   color = "primary",
   onPress,
 }) => {
-  const colors = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   const buttonColor = useMemo(() => {
     return colors[color] || color;

@@ -1,16 +1,20 @@
 import React, { createContext } from "react";
 
+type Theme = { colors?: { [key: string]: string } };
+
 const INITIAL_COLORS = {
-  primary: "#007bff",
-  danger: "#dc3545",
+  colors: {
+    primary: "#007bff",
+    danger: "#dc3545",
+  },
 };
 
-export const ThemeContext = createContext<{ [key: string]: string }>(
-  INITIAL_COLORS
-);
+export const ThemeContext = createContext<Required<Theme>>({
+  ...INITIAL_COLORS,
+});
 
 type Props = {
-  theme?: { [key: string]: string };
+  theme?: Theme;
   children: React.ReactNode;
 };
 
