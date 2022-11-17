@@ -37,9 +37,11 @@ export const Button: React.FC<Props> = ({
   );
 };
 
-const ContainedButton: React.FC<
-  Omit<Props, "variant" | "color"> & { color: string }
-> = ({ title, color, onPress }) => {
+const ContainedButton: React.FC<Omit<Props, "variant">> = ({
+  title,
+  color,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -53,6 +55,7 @@ const ContainedButton: React.FC<
 const containedButtonStyles = StyleSheet.create({
   container: {
     padding: 8,
+    borderRadius: 4,
   },
   text: {
     textAlign: "center",
@@ -61,8 +64,10 @@ const containedButtonStyles = StyleSheet.create({
   },
 });
 
-const TextButton: React.FC<
-  Omit<Props, "variant" | "color"> & { color: string }
-> = ({ title, color, onPress }) => {
+const TextButton: React.FC<Omit<Props, "variant">> = ({
+  title,
+  color,
+  onPress,
+}) => {
   return <ButtonElement title={title} color={color} onPress={onPress} />;
 };
